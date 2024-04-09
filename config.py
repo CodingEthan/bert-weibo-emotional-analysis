@@ -10,7 +10,7 @@ class Config(object):
         self.test_path = './dataset/test_data.txt'                                  # 测试集
         self.class_list = ['Negative', 'Positive']                                # 类别名单
         self.save_path = './saved/result.ckpt'        # 模型训练结果
-        self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')   # 设备
+        self.device = torch.device('cuda')   # 设备
 
         self.require_improvement = 1000                                 # 若超过1000batch效果还没提升，则提前结束训练
         self.num_classes = len(self.class_list)                         # 类别数
