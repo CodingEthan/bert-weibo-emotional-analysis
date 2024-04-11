@@ -69,3 +69,9 @@ def get_data_loader():  # return trainloader and testloader
     test_loader = DataLoader(data_test, batch_size=config_inf.batch_size, shuffle=True)  # , collate_fn=collate
     dev_loader = DataLoader(data_dev, batch_size=config_inf.batch_size, shuffle=True)
     return train_loader, dev_loader, test_loader
+
+def create_dataloader():
+    config_inf = config.Config()
+    dataloader_application_dataset = Dataset(config_inf.application_path)
+    dataloader_application = DataLoader(dataloader_application_dataset, batch_size=config_inf.batch_size, shuffle=True)
+    return dataloader_application
