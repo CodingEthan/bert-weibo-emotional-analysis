@@ -9,6 +9,7 @@ import train
 import pandas as pd
 from tqdm import tqdm
 import csv
+import sys
 
 
 if __name__ == '__main__':
@@ -31,6 +32,18 @@ if __name__ == '__main__':
         outputs = model(i) 
         predic = torch.max(outputs.data, 1)[1].cpu().numpy()
         pre_list.extend(predic)
+    
+pre_list = []
+all_len = len(dataloader_application)
+cot = 0
+for i, j in dataloader_application:
+    outputs = model(i)
+    predic = torch.max(outputs.data, 1)[1].cpu().numpy()
+    pre_list.extend(predic)
+    cot += 1
+    num = format(cot / all_len, '.2%')
+    sys.stdout.write('\r' + "[" + "=" * int(cot / all_len * 50) + " " * (50 - int(cot / all_len * 50)) + "]" + num)
+    sys.stdout.flush()
     
     #将预测结果写入文件
     with open("./dataset/result.csv", 'w',encoding="utf-8") as w:
