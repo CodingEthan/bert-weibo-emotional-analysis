@@ -36,7 +36,7 @@ if __name__ == '__main__':
         outputs = model(i) 
         probabilities = F.softmax(outputs, dim=1)  # 应用 softmax 函数
         probability_label_0 = probabilities[:, 0]  # 提取标签为0的概率
-        probabilities_label_0.extend(probability_label_0.cpu().numpy())
+        probabilities_label_0.extend(probability_label_0.detach().cpu().numpy())
         cot+=1
         num = format(cot/all_len, '.2%')
         if cot%10 == 0:
