@@ -20,5 +20,5 @@ class Config(object):
         self.learning_rate = 4e-5                                       # 学习率
         self.bert_path = './bert_pretrain'
         self.tokenizer = BertTokenizer.from_pretrained(self.bert_path)
-        self.hidden_size = 1024
+        self.hidden_size = 768
         self.application_path = './dataset/application_data.txt'
