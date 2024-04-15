@@ -14,8 +14,9 @@ import sys
 
 if __name__ == '__main__':
     config_inf = config.Config()
-    np.random.seed(1)
-    torch.manual_seed(1)
+    np.random.seed(23)
+    torch.manual_seed(23)
+    torch.cuda.manual_seed_all(23)
     torch.backends.cudnn.deterministic = True  # 保证每次结果一样
 
     start_time = time.time()
