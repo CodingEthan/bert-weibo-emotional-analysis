@@ -1,4 +1,4 @@
-# 基于Bert的微博评论情感分析
+# 基于Bert的微博评论情感分析（参考自https://gitee.com/chyl-100days/bert-weibo-emotional-analysis/blob/master）
 
 # 摘要
 
